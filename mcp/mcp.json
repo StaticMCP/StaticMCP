@@ -1,0 +1,61 @@
+{
+  "protocolVersion": "2024-11-05",
+  "serverInfo": {
+    "name": "Docusaurus StaticMCP Server",
+    "version": "1.0.0"
+  },
+  "capabilities": {
+    "resources": [
+      {
+        "uri": "docs://docs/bridge",
+        "name": "bridge",
+        "description": "docs content: Untitled",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "docs://docs/comparison",
+        "name": "comparison",
+        "description": "docs content: Untitled",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "docs://docs/rfc",
+        "name": "rfc",
+        "description": "docs content: Untitled",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "docs://docs/standard",
+        "name": "standard",
+        "description": "docs content: Untitled",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "docs://src/pages/index",
+        "name": "index",
+        "description": "pages content: Untitled",
+        "mimeType": "text/markdown"
+      }
+    ],
+    "tools": [
+      {
+        "name": "list_docs",
+        "description": "List available documentation",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "docs",
+                "blog",
+                "all"
+              ],
+              "description": "Type of content to list"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
