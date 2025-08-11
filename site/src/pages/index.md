@@ -21,6 +21,12 @@ Leverage CDN edge caching for global performance. Your MCP service automatically
 ### 🔧 **Developer Friendly**
 Build with any language or tool you prefer. Python scripts, Bash commands, or full-fledged build systems – if it can generate JSON, it can power StaticMCP.
 
+## 🌐 Zero Infrastructure Required
+
+Use our hosted bridge at `https://bridge.staticmcp.com` - no servers to run, no containers to manage.
+
+[Get Started →](/docs/bridge#hosted-bridge-service)
+
 ## Perfect For
 
 - **Personal AI Assistants**: Expose your resume, projects, and knowledge base
@@ -36,7 +42,7 @@ StaticMCP follows a simple file-based architecture inspired by static site gener
 1. **Pre-Generation Phase**: Use any tool to generate static JSON files from your data sources
 2. **File Structure**: Organize files following the StaticMCP standard directory layout
 3. **Deployment**: Upload to any static hosting provider
-4. **Bridge Server**: A lightweight proxy translates MCP requests to file paths
+4. [**Bridge Server**](/docs/bridge): A lightweight proxy translates MCP requests to file paths
 
 ```
 staticmcp-site/

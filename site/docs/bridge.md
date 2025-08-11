@@ -2,6 +2,55 @@
 
 The StaticMCP Bridge is the critical component that enables standard MCP clients to seamlessly interact with static file-based context servers. Acting as a lightweight translation layer, the bridge converts real-time MCP requests into file system operations, making static pre-generated content appear as a fully dynamic MCP server.
 
+## Hosted Bridge Service
+
+**URL**: `https://bridge.staticmcp.com`
+
+The easiest way to use StaticMCP is with our hosted bridge service. No servers to run, no infrastructure to manage.
+
+### Quick Start
+```bash
+# 1. Deploy your StaticMCP files to any static host
+netlify deploy --dir ./your-staticmcp-output
+
+# 2. Connect AI clients to the hosted bridge
+https://bridge.staticmcp.com/sse?url=https://your-site.netlify.app
+```
+
+### Usage Examples
+
+**With MCP Inspector (Testing):**
+```bash
+npx @modelcontextprotocol/inspector \
+  "https://bridge.staticmcp.com/sse?url=https://your-site.com"
+```
+
+**With Claude Desktop:**
+```json
+{
+  "mcp": {
+    "servers": {
+      "my-docs": {
+        "command": "curl",
+        "args": [
+          "-X", "POST",
+          "https://bridge.staticmcp.com/sse?url=https://your-site.com"
+        ]
+      }
+    }
+  }
+}
+```
+
+### When to Use Hosted Bridge
+- ✅ **Quick prototyping** - Get started in minutes
+
+### When to Self-Host
+- 🔧 **Custom extensions** - Need runtime extensions not in hosted version
+- 🔧 **Enterprise requirements** - Custom SLAs or compliance needs
+- 🔧 **High volume** - Beyond free tier limits
+- 🔧 **Network restrictions** - Must route through private networks
+
 ## Architecture Role
 
 ![](@site/static/img/arch.png)
@@ -139,6 +188,19 @@ Bridges support multiple source types for maximum flexibility:
 - **Access Control**: Implement authentication and authorization where needed
 - **Input Validation**: Sanitize requests to prevent security vulnerabilities
 - **Rate Limiting**: Protect against abuse and ensure fair resource usage
+
+## Bridge Deployment Options
+
+| Feature | Hosted Bridge | Self-Hosted SSE | Self-Hosted STDIO |
+|---------|---------------|-----------------|-------------------|
+| **Setup Time** | Instant | 30 minutes | 10 minutes |
+| **Maintenance** | Zero | Medium | Low |
+| **Custom Extensions** | Built-in only | Full support | Full support |
+| **Global Performance** | Excellent | Depends on deployment | Local only |
+| **Cost** | Free (with limits) | Infrastructure cost | Device power |
+| **Use Case** | Production, prototyping | Enterprise, custom needs | Development, testing |
+
+**Recommendation**: Start with the hosted bridge, then self-host if you need custom extensions or have more powerful demands.
 
 ## Types
 

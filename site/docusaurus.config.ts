@@ -37,7 +37,9 @@ const config: Config = {
       items: [
         {to: 'docs/rfc', label: 'RFC', position: 'left'},
         {to: 'docs/standard', label: 'Standard', position: 'left'},
+        {to: 'docs/examples', label: 'Examples', position: 'left'},
         {to: 'docs/comparison', label: 'Alternatives', position: 'left'},
+        {to: 'docs/vs_traditional', label: 'vs Traditional', position: 'left'},
         {to: 'docs/bridge', label: 'Bridge', position: 'left'},
         {
           href: 'https://github.com/StaticMCP/StaticMCP',
