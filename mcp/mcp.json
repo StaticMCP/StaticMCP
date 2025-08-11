@@ -19,6 +19,12 @@
         "mimeType": "text/markdown"
       },
       {
+        "uri": "docs://docs/examples",
+        "name": "examples",
+        "description": "docs content: Untitled",
+        "mimeType": "text/markdown"
+      },
+      {
         "uri": "docs://docs/rfc",
         "name": "rfc",
         "description": "docs content: Untitled",
@@ -27,6 +33,12 @@
       {
         "uri": "docs://docs/standard",
         "name": "standard",
+        "description": "docs content: Untitled",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "docs://docs/vs_traditional",
+        "name": "vs_traditional",
         "description": "docs content: Untitled",
         "mimeType": "text/markdown"
       },
