@@ -27,7 +27,7 @@
     "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
-    "docusaurus-smg": "0.0.3",
+    "docusaurus-smg": "0.0.4",
     "typescript": "5.6.2"
   },
   "browserslist": {
