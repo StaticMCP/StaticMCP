@@ -1,0 +1,8 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "[\n  \"docs/bridge\",\n  \"docs/comparison\",\n  \"docs/examples\",\n  \"docs/rfc\",\n  \"docs/standard\",\n  \"docs/vs_traditional\",\n  \"src/pages/index\"\n]"
+    }
+  ]
+}

@@ -1,8 +1,0 @@
-{
-  "content": [
-    {
-      "type": "text",
-      "text": "[\n  {\n    \"uri\": \"docs://docs/bridge\",\n    \"name\": \"bridge\",\n    \"description\": \"docs content: Untitled\",\n    \"mimeType\": \"text/markdown\"\n  },\n  {\n    \"uri\": \"docs://docs/comparison\",\n    \"name\": \"comparison\",\n    \"description\": \"docs content: Untitled\",\n    \"mimeType\": \"text/markdown\"\n  },\n  {\n    \"uri\": \"docs://docs/examples\",\n    \"name\": \"examples\",\n    \"description\": \"docs content: Untitled\",\n    \"mimeType\": \"text/markdown\"\n  },\n  {\n    \"uri\": \"docs://docs/rfc\",\n    \"name\": \"rfc\",\n    \"description\": \"docs content: Untitled\",\n    \"mimeType\": \"text/markdown\"\n  },\n  {\n    \"uri\": \"docs://docs/standard\",\n    \"name\": \"standard\",\n    \"description\": \"docs content: Untitled\",\n    \"mimeType\": \"text/markdown\"\n  },\n  {\n    \"uri\": \"docs://docs/vs_traditional\",\n    \"name\": \"vs_traditional\",\n    \"description\": \"docs content: Untitled\",\n    \"mimeType\": \"text/markdown\"\n  },\n  {\n    \"uri\": \"docs://src/pages/index\",\n    \"name\": \"index\",\n    \"description\": \"pages content: Untitled\",\n    \"mimeType\": \"text/markdown\"\n  }\n]"
-    }
-  ]
-}

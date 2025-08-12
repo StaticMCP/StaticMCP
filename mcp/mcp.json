@@ -51,21 +51,27 @@
     ],
     "tools": [
       {
-        "name": "list_docs",
-        "description": "List available documentation",
+        "name": "list_resources",
+        "description": "List all available resource URIs that can be used with get_resource",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "get_resource",
+        "description": "Get the content of a specific resource by URI",
         "inputSchema": {
           "type": "object",
           "properties": {
-            "type": {
+            "uri": {
               "type": "string",
-              "enum": [
-                "docs",
-                "blog",
-                "all"
-              ],
-              "description": "Type of content to list"
+              "description": "URI of the resource to retrieve"
             }
-          }
+          },
+          "required": [
+            "uri"
+          ]
         }
       }
     ]
