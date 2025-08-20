@@ -83,7 +83,57 @@ Example mappings:
 - `resume://experiences` → `experiences.json`
 - `resume://skills` → `skills.json`
 
-## 3. Resource File Response
+## 3. Filename Encoding Convention
+
+### Basic Rules
+
+1. **Unicode normalization**: Decompose accented characters (é → e, ñ → n)
+2. **Lowercase conversion**: All characters converted to lowercase
+3. **Safe character set**: Keep only a-z, 0-9, -, _
+4. **Space handling**: Convert spaces to underscores (_)
+5. **Invalid characters**: Replace all other characters with underscores (_)
+6. **Length limit**: Maximum 200 characters (leaving room for .json extension)
+
+### Long Filename Handling
+
+When encoded filename exceeds 200 characters:
+- Take first 183 characters of encoded name
+- Append _ + 16-character hex hash of original title
+- Format: `{first_183_chars}_{16_hex_hash}`
+- Hash is generated from the original (pre-encoded) title for consistency
+
+### Examples
+
+- `"Hello World"` → `"hello_world"`
+- `"François Mitterrand"` → `"francois_mitterrand"`
+- `"COVID-19 pandemic"` → `"covid-19_pandemic"`
+- `"José María Aznar"` → `"jose_maria_aznar"`
+- `"King George III"` → `"king_george_iii"`
+
+### Implementation Reference
+
+```javascript
+function encodeStaticMcpFilename(title) {
+  // Unicode normalization (remove accents)
+  const normalized = title.normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+
+  // Lowercase + safe characters only
+  const safe = normalized.toLowerCase()
+    .replace(/[^a-z0-9\-_]/g, '_')
+    .replace(/\s+/g, '_');
+
+  // Handle long filenames
+  if (safe.length <= 200) return safe;
+
+  const hash = hashFunction(title).toString(16).padStart(16, '0');
+  return safe.substring(0, 183) + '_' + hash;
+}
+```
+
+This ensures consistent, predictable filenames across all StaticMCP implementations.
+
+## 4. Resource File Response
 
 ```json
 {
@@ -93,7 +143,7 @@ Example mappings:
 }
 ```
 
-## 4. Tool Response
+## 5. Tool Response
 
 ```json
 {

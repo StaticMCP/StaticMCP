@@ -129,10 +129,13 @@ MCP resource requests map to files in the `resources/` directory:
 
 #### 4.1.1 URI Encoding Rules
 
+StaticMCP uses a standardized filename encoding convention to ensure consistent, predictable filenames across all implementations. See the [Filename Encoding Convention](standard#3-filename-encoding-convention) in the standard specification for complete details.
+
+Basic encoding rules:
 1. Remove everything before `://` (inclusive)
-2. `/` refers to directory
-3. No special characters allowed
-4. Ensure resulting filename is valid for target file system
+2. `/` refers to directory structure
+3. Apply StaticMCP filename encoding (Unicode normalization, lowercase, safe characters only)
+4. Handle long filenames with truncation and hashing
 
 ### 4.2 Tool Requests
 
