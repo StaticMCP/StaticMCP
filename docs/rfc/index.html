@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">RFC | StaticMCP</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://staticmcp.com/docs/rfc"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="RFC | StaticMCP"><meta data-rh="true" name="description" content="StaticMCP - Static Model Context Protocol"><meta data-rh="true" property="og:description" content="StaticMCP - Static Model Context Protocol"><link data-rh="true" rel="canonical" href="https://staticmcp.com/docs/rfc"><link data-rh="true" rel="alternate" href="https://staticmcp.com/docs/rfc" hreflang="en"><link data-rh="true" rel="alternate" href="https://staticmcp.com/docs/rfc" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"RFC","item":"https://staticmcp.com/docs/rfc"}]}</script><link rel="stylesheet" href="/assets/css/styles.844fcb34.css">
-<script src="/assets/js/runtime~main.c015ad1a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.2f674ee0.js" defer="defer"></script>
 <script src="/assets/js/main.8a2b0a25.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -67,11 +67,13 @@
 <p>MCP resource requests map to files in the <code>resources/</code> directory:</p>
 <table><thead><tr><th>MCP Request</th><th>File Path</th></tr></thead><tbody><tr><td><code>resources/read</code> with URI <code>file://README.md</code></td><td><code>resources/README.md.json</code></td></tr><tr><td><code>resources/read</code> with URI <code>web://docs/api</code></td><td><code>resources/docs/api.json</code></td></tr></tbody></table>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="411-uri-encoding-rules">4.1.1 URI Encoding Rules<a href="#411-uri-encoding-rules" class="hash-link" aria-label="Direct link to 4.1.1 URI Encoding Rules" title="Direct link to 4.1.1 URI Encoding Rules">​</a></h4>
+<p>StaticMCP uses a standardized filename encoding convention to ensure consistent, predictable filenames across all implementations. See the <a href="/docs/standard#3-filename-encoding-convention">Filename Encoding Convention</a> in the standard specification for complete details.</p>
+<p>Basic encoding rules:</p>
 <ol>
 <li>Remove everything before <code>://</code> (inclusive)</li>
-<li><code>/</code> refers to directory</li>
-<li>No special characters allowed</li>
-<li>Ensure resulting filename is valid for target file system</li>
+<li><code>/</code> refers to directory structure</li>
+<li>Apply StaticMCP filename encoding (Unicode normalization, lowercase, safe characters only)</li>
+<li>Handle long filenames with truncation and hashing</li>
 </ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="42-tool-requests">4.2 Tool Requests<a href="#42-tool-requests" class="hash-link" aria-label="Direct link to 4.2 Tool Requests" title="Direct link to 4.2 Tool Requests">​</a></h3>
 <p>Tool calls map to files in the <code>tools/{tool-name}/</code> directory:</p>
